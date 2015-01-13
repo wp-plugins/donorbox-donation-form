@@ -6,7 +6,7 @@ Description: This plugin will embed Donorbox Donation Form to your site using sh
 Author: rebelidealist
 Author URI: https://donorbox.org
 Tags: donorbox, donation, embed, campaign, form, shortcode
-Version: 1.0
+Version: 1.1
 License: GPLv2 or later.
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -57,7 +57,8 @@ class Donorbox_donation_form {
     public function donorbox_register_settings_and_fields() {
         register_setting('donorbox_embed_campaign_options', 'donorbox_embed_campaign_options');
         add_settings_section('donorbox_campaign_settings_section', 'Campaign Settings', array($this, 'donorbox_embed_campaign_callback'), __FILE__);
-        add_settings_field('donorbox_embed_campaign_id', 'Campaign ID', array($this, 'donorbox_embed_campaign_id_settings'), __FILE__, 'donorbox_campaign_settings_section');
+        add_settings_field('donorbox_embed_campaign_instructions', 'Instructions', array($this, 'donorbox_embed_campaign_instructions_text'), __FILE__, 'donorbox_campaign_settings_section');
+        add_settings_field('donorbox_embed_campaign_id', 'Campaign URL', array($this, 'donorbox_embed_campaign_id_settings'), __FILE__, 'donorbox_campaign_settings_section');
     }
 
     /** 
@@ -66,15 +67,20 @@ class Donorbox_donation_form {
     public function donorbox_embed_campaign_callback() {}
 
     /** 
-     * Campaign details section
+     * Campaign instructions
      */
-    public function donorbox_embed_campaign_id_settings() { ?>
-        <input name="donorbox_embed_campaign_options[donorbox_embed_campaign_id]" type="text" value="<?php echo $this->options['donorbox_embed_campaign_id']; ?>" class="regular-text" />
-        <br/><br/>
-        <p class="description"><strong><i>Instructions</i></strong></p>
+    public function donorbox_embed_campaign_instructions_text() { ?>
         <p class="description">1. After signing up on <a href="https://donorbox.org" target="_blank">Donorbox.org</a>, create a donation campaign from the dashboard.</p>
         <p class="description">2. Paste in either the full Donorbox campaign url e.g. https://donorbox.org/campaign-id or the part after the '/' 'campaign-id'.</p>
         <p class="description">3. Use the shortcode <strong>[donate]</strong> to embed the donation form. You can also use the shortcode <strong>[donate-with-info]</strong> which will include the campaign description and legal disclaimer that was on Donorbox.</p>
+        <?php
+    }
+
+    /** 
+     * Campaign details input
+     */
+    public function donorbox_embed_campaign_id_settings() { ?>
+        <input name="donorbox_embed_campaign_options[donorbox_embed_campaign_id]" type="text" value="<?php echo $this->options['donorbox_embed_campaign_id']; ?>" class="regular-text" />
         <?php
     }
 }
