@@ -6,7 +6,7 @@ Description: This plugin will embed Donorbox Donation Form to your site using sh
 Author: rebelidealist
 Author URI: https://donorbox.org
 Tags: donation, donations, nonprofit, nonprofits, fundraising, payment, payments, crowdfunding, campaign, stripe, campaigns, social causes, causes, credit card, credit cards
-Version: 1.1
+Version: 1.2
 License: GPLv2 or later.
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
