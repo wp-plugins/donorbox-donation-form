@@ -5,7 +5,7 @@ Plugin URI: https://donorbox.org
 Description: This plugin will embed Donorbox Donation Form to your site using shortcode '[donate]' and '[donate-with-info]'. The settings is very simple. One input box for either the full Donorbox url e.g. https://donorbox.org/campaign-id or the part after the '/' 'campaign_id'. No embed code needed. We will generate the embed code for you!
 Author: rebelidealist
 Author URI: https://donorbox.org
-Tags: donorbox, donation, embed, campaign, form, shortcode
+Tags: donation, donations, nonprofit, nonprofits, fundraising, payment, payments, crowdfunding, campaign, stripe, campaigns, social causes, causes, credit card, credit cards
 Version: 1.1
 License: GPLv2 or later.
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
