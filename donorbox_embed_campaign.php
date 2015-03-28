@@ -6,7 +6,7 @@ Description: This plugin will embed Donorbox Donation Form to your site using sh
 Author: rebelidealist
 Author URI: https://donorbox.org
 Tags: donation, donations, nonprofit, nonprofits, fundraising, payment, payments, crowdfunding, campaign, stripe, campaigns, social causes, causes, credit card, credit cards
-Version: 2.0
+Version: 3.0
 License: GPLv2 or later.
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -140,6 +140,7 @@ function generate_donorbox_iframe_src($info_details) {
     $campaign_keys = parse_url($donorbox_campaign_input); // parse the url
     $path = explode("/", $campaign_keys['path']); // splitting the path
     $campaign_id = end($path); // get the value of the last element
+    $style = 'style="max-width:500px; min-width:310px;"'; // default inline style for widget width management
     // if user entered a slash at end of the url, then check if a valid campaign id can be extracted from the url or not
     if (empty($campaign_id)) {
         $campaign_id = prev($path); // traceback to previous url segments
@@ -148,15 +149,16 @@ function generate_donorbox_iframe_src($info_details) {
     // if parameter is there to add info, then append the attribute to iframe src
     if ($info_details === 'with-info') {
         $campaign_id = $campaign_id.'?show_content=true';
+        $style = 'style="max-width:100%; min-width:780px;"';
     }
 
     $donorbox_widget_height = floatval($donorbox_widget_height);
     if ($donorbox_widget_height <= 0) {
-        $donorbox_widget_height = 800;
+        $donorbox_widget_height = 792;
     }
 
     // generate the iframe code
-    $donorbox_iframe_embed_code = '<iframe src="'.$donorbox_domain.'/embed/'.$campaign_id.'" width="100%" height="'.$donorbox_widget_height.'px" seamless="seamless" name="donorbox" frameborder="0" scrolling="no"></iframe>';
+    $donorbox_iframe_embed_code = '<iframe src="'.$donorbox_domain.'/embed/'.$campaign_id.'" width="100%" height="'.$donorbox_widget_height.'px" '.$style.' seamless="seamless" name="donorbox" frameborder="0" scrolling="no"></iframe>';
     // return the embed code to calling event i.e. shortcode replacement
     return $donorbox_iframe_embed_code;
 }
