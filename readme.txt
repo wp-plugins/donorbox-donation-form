@@ -5,7 +5,7 @@ Author URI: https://donorbox.org
 Donate link: https://donorbox.org
 Tags: donation, donations, nonprofit, nonprofits, fundraising, payment, payments, crowdfunding, campaign, stripe, campaigns, social causes, causes, credit card, credit cards
 Requires at least: 3.0
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
